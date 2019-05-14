@@ -1,12 +1,10 @@
-const webpack = require('webpack')
-
 module.exports = {
   plugins: [
   ],
   module: {
     rules: [
       {
-        test: /\.(js|ts)x?$/,
+        test: /\.(js)x?$/,
         exclude: /node_modules/,
         use: [
           'babel-loader',
@@ -20,12 +18,6 @@ module.exports = {
           'css-loader',
         ],
       },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
-      },
     ],
   },
   resolve: {
@@ -33,6 +25,6 @@ module.exports = {
       'src',
       'node_modules',
     ],
-    extensions: [ '.js', '.jsx', '.ts', '.tsx' ],
+    extensions: [ '.js', '.jsx' ],
   },
 };
