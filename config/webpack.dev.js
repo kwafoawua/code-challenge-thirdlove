@@ -12,11 +12,12 @@ module.exports = merge(common, {
   ],
   devServer: {
     hotOnly: true,
+    // eslint-disable-next-line no-undef
     contentBase: path.resolve(__dirname, '../src'),
     historyApiFallback: true,
     host: '0.0.0.0',
     disableHostCheck: true,
     port: '3000',
     publicPath: '/',
-  }
+  },
 })
