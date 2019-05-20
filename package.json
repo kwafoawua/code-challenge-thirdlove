@@ -22,7 +22,8 @@
     "@emotion/core": "^10.0.10",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "@emotion/styled": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
