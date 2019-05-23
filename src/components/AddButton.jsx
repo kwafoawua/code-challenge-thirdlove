@@ -1,25 +1,25 @@
 import styled from '@emotion/styled'
-import { fonts } from '../styles'
+import { fonts, sizes } from '../common'
 
 export const AddButton = styled.div`
   background-color: black;
   color: white;
   font-family: ${fonts.primary};
   font-size: 14px;
+  font-weight: bold;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  
+  align-self: center;
   height: 50px;
-  @media(max-width: 1440px) {
+  width: 335px;
+
+ @media(min-width: ${sizes.mobile}) {
+    width: 708px;
+  }
+  @media(min-width: ${sizes.tablet}) {
     width: 370px;
-  }
-  @media(max-width: 768px) {
-    width: 90%;
-  }
-  @media(max-width: 480px) {
-    width: 90%;
   }
 
 
