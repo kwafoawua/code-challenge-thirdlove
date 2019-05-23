@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors } from '../styles'
+import { colors } from '../common'
 
 export const ColorCircle = styled.button`
   height: 30px;
@@ -11,6 +11,6 @@ export const ColorCircle = styled.button`
   outline: none;
   
   &:focus {
-    border: solid 3px ${colors.gray};
+    border: solid 3px ${colors.circleBorder};
   }
 `
