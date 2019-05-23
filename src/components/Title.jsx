@@ -1,18 +1,19 @@
 import styled from '@emotion/styled'
-import { colors, fonts } from '../styles'
+import { colors, fonts, sizes } from '../common'
 
 export const Title = styled.div`
-  width: 90%;
+  grid-area: title;
+  align-self: end;
   font-family: ${fonts.title};
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   font-stretch: normal;
   line-height: 1.09;
   letter-spacing: normal;
   text-align: center;
-  color: ${colors.darkGray};
+  color: ${colors.title};
   
-  @media(max-width: 480px) {
-    font-size: 22px;
-  }
+/*  @media all and(min-width: ${sizes.mobile}) {
+    font-size: 24px;
+  }*/
 `
