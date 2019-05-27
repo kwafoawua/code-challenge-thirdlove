@@ -21,6 +21,4 @@ export const AddButton = styled.div`
   @media(min-width: ${sizes.tablet}) {
     width: 370px;
   }
-
-
 `
