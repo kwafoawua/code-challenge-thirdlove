@@ -1,7 +1,7 @@
 export { AddButton } from './AddButton'
 export { DropdownContainer } from './DropdownContainer'
-export { ColorCircleContainer } from './ColorCircleContainer'
 export { ColorCircle } from './ColorButton/ColorCircle'
+export { ColorCircleContainer } from './ColorButton/ColorCircleContainer'
 export { Label } from './Label'
 export { Title } from './Title'
 export { Price } from './Price'
