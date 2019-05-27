@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from '@storybook/react/demo'
 import { AddButton, DropdownContainer, ColorCircle, ColorCircleContainer, Label, Title, Price,
-  HorizontalRule, Container, InnerContainer } from "../components/index"
+  HorizontalRule, Container, InnerContainer, VerticalGallery,
+  PhotoGalleryContainer, BigImageGallery, CarouselGallery } from '../components/index'
 import { colors } from '../common'
 
 storiesOf('Button', module)
@@ -100,5 +101,41 @@ storiesOf('Button', module)
         </li>
       </ul>
 
+    </Container>
+  ))
+  .add('Gallery 1440', () => (
+    <Container>
+      <PhotoGalleryContainer>
+        <VerticalGallery>
+          {/* eslint-disable-next-line max-len */}
+          <img tabIndex="1" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg"></img>
+          {/* eslint-disable-next-line max-len */}
+          <img tabIndex="2" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg"></img>
+          {/* eslint-disable-next-line max-len */}
+          <img tabIndex="3" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg"></img>
+          {/* eslint-disable-next-line max-len */}
+          <img tabIndex="4"  src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg"></img>
+          {/* eslint-disable-next-line max-len */}
+          <img tabIndex="5" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg"></img>
+        </VerticalGallery>
+        {/* eslint-disable-next-line max-len */}
+        <BigImageGallery src={"http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"} />
+      </PhotoGalleryContainer>
+    </Container>
+  ))
+  .add('Gallery Carousel', () =>(
+    <Container>
+      <CarouselGallery>
+        {/* eslint-disable-next-line max-len */}
+        <img tabIndex="1" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"></img>
+        {/* eslint-disable-next-line max-len */}
+        <img tabIndex="2" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"></img>
+        {/* eslint-disable-next-line max-len */}
+        <img tabIndex="3" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"></img>
+        {/* eslint-disable-next-line max-len */}
+        <img tabIndex="4"  src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"></img>
+        {/* eslint-disable-next-line max-len */}
+        <img tabIndex="5" src="http://static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_600x.jpg"></img>
+      </CarouselGallery>
     </Container>
   ))
