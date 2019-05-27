@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors } from '../common'
+import { colors } from '../../common'
 
 export const ColorCircle = styled.button`
   height: 30px;
