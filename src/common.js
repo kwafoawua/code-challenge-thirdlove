@@ -5,6 +5,8 @@ export const colors = {
   'description': '#444444',
   'price': '#666666',
   'hr': '#f7f7f7',
+  'borderGallery': '#888888',
+  'dot': '#cccccc',
   'naked1': '#ffefe5',
   'naked2': '#dab5a1',
   'naked3': '#d49d89',
