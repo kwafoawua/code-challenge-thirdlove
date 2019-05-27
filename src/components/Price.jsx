@@ -10,6 +10,4 @@ export const Price = styled.div`
   color: ${colors.price};
   letter-spacing: 1px;
   justify-self: center;
-
-
 `
