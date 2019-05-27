@@ -13,7 +13,7 @@ export const Title = styled.div`
   text-align: center;
   color: ${colors.title};
   
-/*  @media all and(min-width: ${sizes.mobile}) {
+  @media(min-width: ${sizes.mobile}) {
     font-size: 24px;
-  }*/
+  }
 `
