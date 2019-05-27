@@ -11,10 +11,16 @@ export const Container = styled.div`
     "image image image"
     ". content ."
     ". description .";
+    
   p, ul {
     font-family: ${fonts.description};
     font-size: 13px;
     color: ${colors.description};
+    line-height: 1.77;
+  }
+  
+  ul {
+    padding-left: 18px;
   }
   
   @media(min-width: ${sizes.mobile}){
@@ -23,13 +29,14 @@ export const Container = styled.div`
   }
   
   @media(min-width: ${sizes.tablet}) {
+    margin-top: 68px;
+    max-width: 1440px;
     grid-template-rows: 58px 40px auto;
-    grid-template-columns: 60% auto;
+    grid-template-columns: 157px 736px 38px 371px;
     grid-template-areas: 
-    "image title"
-    "image price"
-    "image content"
-    "description .";
+    ". image . title"
+    ". image . price"
+    ". image . content"
+    ". description . .";
   }
-  
 `
