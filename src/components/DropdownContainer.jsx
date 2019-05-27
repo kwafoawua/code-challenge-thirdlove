@@ -13,15 +13,16 @@ const SizeDropdown = styled.select`
   padding-left: 10px;
   outline: none;
   
- @media(min-width: ${sizes.mobile}) {
+  @media(min-width: ${sizes.mobile}) {
     width: 170px;
   }  
+  
   @media(min-width: ${sizes.tablet}) {
     width: 178px;
   }
 `
 
-const Wrapper = styled.label`
+const ArrowWrapper = styled.label`
   height: 44px;    
   width: 160px;
   position: relative;
@@ -34,11 +35,12 @@ const Wrapper = styled.label`
   @media(min-width: ${sizes.mobile}) {
     width: 170px;
   }
+  
   @media(min-width: ${sizes.tablet}) {
     width: 178px;
   }
   
-    &::after {
+  &::after {
   content:"\f107";
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
@@ -50,17 +52,22 @@ const Wrapper = styled.label`
   text-align: center;
   pointer-events: none;
 `
+const Wrapper = styled.div`
+  margin-top: 24px;
+  
+  @media(min-width: ${sizes.mobile}) and (max-width: ${sizes.tablet}) {
+    margin-top: 33px;
+  }
+`
 
-export const DropdownContainer = ({ title, children }) => (
-  <div>
-    <Label>
-      { title }
-    </Label>
-    <Wrapper>
-      <SizeDropdown>
+
+export const DropdownContainer = ({ title, change, children }) => (
+  <Wrapper>
+    <Label>{ title }</Label>
+    <ArrowWrapper>
+      <SizeDropdown onChange={ change }>
         { children }
       </SizeDropdown>
-    </Wrapper>
-  </div>
-
+    </ArrowWrapper>
+  </Wrapper>
 )
