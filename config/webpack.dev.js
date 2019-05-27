@@ -10,12 +10,23 @@ module.exports = merge(common, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
   devServer: {
     hotOnly: true,
     // eslint-disable-next-line no-undef
     contentBase: path.resolve(__dirname, '../src'),
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: 'localhost',
     disableHostCheck: true,
     port: '3000',
     publicPath: '/',
