@@ -15,6 +15,7 @@
     }
   },
   "repository": "https://github.com/kwafoawua/code-challenge-thirdlove",
+  "homepage": "https://kwafoawua.github.io/code-challenge-thirdlove/",
   "author": "Afua Kwafo Awua",
   "license": "MIT",
   "dependencies": {
