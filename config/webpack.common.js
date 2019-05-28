@@ -6,7 +6,7 @@ module.exports = {
   entry: [ "@babel/polyfill",'./src/index.jsx' ],
   output: {
     // eslint-disable-next-line no-undef
-    path: path.resolve(__dirname, '../docs'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js',
     publicPath: './',
   },
