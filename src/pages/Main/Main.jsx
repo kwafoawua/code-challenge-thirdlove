@@ -14,7 +14,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://www.mocky.io/v2/5c6c3a92320000e83bbef971')
+    fetch('https://www.mocky.io/v2/5c6c3a92320000e83bbef971')
       .then(response => {
         return response.json()
       })
