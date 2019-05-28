@@ -6,7 +6,7 @@ import {
   VerticalGallery,
 } from '../../components'
 
-const PREFIX = 'http://'
+const PREFIX = 'https://'
 
 class Gallery extends Component {
   constructor(props){
