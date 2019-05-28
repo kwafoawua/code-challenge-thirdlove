@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: [ "@babel/polyfill",'./src/index.jsx' ],
   output: {
     // eslint-disable-next-line no-undef
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../docs'),
     filename: '[name].bundle.js',
     publicPath: './',
   },
