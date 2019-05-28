@@ -28,8 +28,8 @@ class Gallery extends Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (this.props.images !== nextProps.images) {
-      this.setState({images: nextProps.images})
-      this.setState({selectedImage : PREFIX+nextProps.images[0].src600})
+      this.setState({ images: nextProps.images })
+      this.setState({ selectedImage : PREFIX + nextProps.images[0].src600 })
     }
   }
 
@@ -38,9 +38,8 @@ class Gallery extends Component {
   }
 
   handleClickImage = (imageSet) => {
-    console.log(imageSet.src600)
-  let selectedImage = PREFIX+imageSet.src600
-    this.setState({selectedImage} )
+    let selectedImage = PREFIX + imageSet.src600
+    this.setState({ selectedImage } )
   }
 
   render() {
@@ -54,7 +53,7 @@ class Gallery extends Component {
               this.state.images.map((imageSet, index) => {
                 return (
                   <img
-                    src={PREFIX+imageSet.src100}
+                    src={PREFIX + imageSet.src100}
                     key={imageSet.src100}
                     tabIndex={index}
                     onClick={() => this.handleClickImage(imageSet)}/>
@@ -71,9 +70,9 @@ class Gallery extends Component {
           {
             this.state.images.map((imageSet) => {
               if(this.state.width < 376){
-                return(<img src={PREFIX+imageSet.src600} key={imageSet.src600}/>)
+                return(<img src={PREFIX + imageSet.src600} key={imageSet.src600}/>)
               } else {
-                return (<img src={PREFIX+imageSet.src1000} key={imageSet.src1000}/>)
+                return (<img src={PREFIX + imageSet.src1000} key={imageSet.src1000}/>)
               }
             })
           }

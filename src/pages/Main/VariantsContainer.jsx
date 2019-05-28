@@ -27,7 +27,7 @@ class VariantsContainer extends Component {
       inventoryQuantity: '',
       selectedBandSize: '',
       selectedCupSize: {},
-      formattedVariants: []
+      formattedVariants: [],
     }
   }
 
@@ -35,33 +35,34 @@ class VariantsContainer extends Component {
     return R.compose(
       R.assoc('band', R.match(/[1-9]\d+/, variant.option2)[0]),
       R.assoc('size', R.match(/[A-Z]/, variant.option2)[0]),
-      R.pick(['id', 'price','inventory_quantity'])
-      )(variant)
+      R.pick([ 'id', 'price','inventory_quantity' ]),
+    )(variant)
   }
 
   parseVariants = (nextVariants) => {
     let formattedVariants = { naked1: [], naked2: [], naked3: [], naked4: [], naked5: [] }
     R.map( variant => {
-      if(R.gte(variant.inventory_quantity, MAX_STOCK))
-      switch (variant.option1) {
-        case VARIANT_KEYS[0]:
-          formattedVariants.naked1.push(this.pickFields(variant))
-          break
-        case VARIANT_KEYS[1]:
-          formattedVariants.naked2.push(this.pickFields(variant))
-          break
-        case VARIANT_KEYS[2]:
-          formattedVariants.naked3.push(this.pickFields(variant))
-          break
-        case VARIANT_KEYS[3]:
-          formattedVariants.naked4.push(this.pickFields(variant))
-          break
-        case VARIANT_KEYS[4]:
-          formattedVariants.naked5.push(this.pickFields(variant))
-          break
+      if(R.gte(variant.inventory_quantity, MAX_STOCK)) {
+        switch (variant.option1) {
+          case VARIANT_KEYS[0]:
+            formattedVariants.naked1.push(this.pickFields(variant))
+            break
+          case VARIANT_KEYS[1]:
+            formattedVariants.naked2.push(this.pickFields(variant))
+            break
+          case VARIANT_KEYS[2]:
+            formattedVariants.naked3.push(this.pickFields(variant))
+            break
+          case VARIANT_KEYS[3]:
+            formattedVariants.naked4.push(this.pickFields(variant))
+            break
+          case VARIANT_KEYS[4]:
+            formattedVariants.naked5.push(this.pickFields(variant))
+            break
+        }
       }
     })(nextVariants)
-    this.setState({formattedVariants}, () => this.setVariant(VARIANT_NAMES[0], VARIANT_KEYS[0]))
+    this.setState({ formattedVariants }, () => this.setVariant(VARIANT_NAMES[0], VARIANT_KEYS[0]))
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -74,7 +75,7 @@ class VariantsContainer extends Component {
     return R.compose(
       R.toLower,
       R.join(''),
-      R.split('-')
+      R.split('-'),
     )(variantName)
   }
 
@@ -84,7 +85,7 @@ class VariantsContainer extends Component {
       R.nth(0),
       R.filter((selectedCupSize) => {
         return id == selectedCupSize.id
-      })
+      }),
     )(this.state.cupSizes)
   }
 
@@ -98,18 +99,17 @@ class VariantsContainer extends Component {
   getCupSizes = (selectedBandSize, variant) => {
     return R.compose(
       R.map(selectedVariants => {
-          return R.pick(['id', 'size', 'price', 'inventory_quantity'], selectedVariants)
+        return R.pick([ 'id', 'size', 'price', 'inventory_quantity' ], selectedVariants)
       }),
       R.filter((variant) => {
         return variant.band === selectedBandSize
-      })
+      }),
     )(this.state.formattedVariants[variant])
   }
 
   setVariant = (variantName, variantKey) => {
     let selectedColor =  variantKey.toUpperCase()
-    let inventoryQuantity = this.state.formattedVariants[variantName]
-      [0].inventory_quantity
+    let inventoryQuantity = this.state.formattedVariants[variantName][0].inventory_quantity
     let bandSizes = this.getBandSizes(variantName)
     let selectedBandSize = bandSizes[0]
     let cupSizes = this.getCupSizes(selectedBandSize,variantName)
@@ -117,16 +117,16 @@ class VariantsContainer extends Component {
     let price = this.state.formattedVariants[variantName][0].price
 
 
-    this.setState({selectedColor, inventoryQuantity, selectedBandSize, cupSizes, bandSizes,
-      selectedCupSize, price})
+    this.setState({ selectedColor, inventoryQuantity, selectedBandSize, cupSizes, bandSizes,
+      selectedCupSize, price })
   }
   getSelectedCupSize = (id) => {
     return R.compose(
-    R.nth(0),
+      R.nth(0),
       R.filter((selectedCupSize) => {
         return id == selectedCupSize.id
-      })
-  )(this.state.cupSizes)
+      }),
+    )(this.state.cupSizes)
   }
 
   handleChangeCupSize = (e) => {
@@ -137,20 +137,21 @@ class VariantsContainer extends Component {
     let inventoryQuantity = this.getAttributeById(id, 'inventory_quantity')
     let selectedCupSize = this.getSelectedCupSize(id)
 
-    this.setState({price, inventoryQuantity, selectedCupSize})
+    this.setState({ price, inventoryQuantity, selectedCupSize })
   }
 
   handleChangeBandSize = (e) => {
-
-    let cupSizes = this.getCupSizes(e.target.value, this.convertVariantName(this.state.selectedColor))
+    let cupSizes = this.getCupSizes(e.target.value,
+      this.convertVariantName(this.state.selectedColor))
     let price = cupSizes[0].price
     let inventoryQuantity = cupSizes[0].inventory_quantity
     let selectedBandSize = e.target.value
     let selectedCupSize = cupSizes[0]
-    this.setState({cupSizes, price, inventoryQuantity, selectedBandSize, selectedCupSize})
+    this.setState({ cupSizes, price, inventoryQuantity, selectedBandSize, selectedCupSize })
   }
 
   addToBag = () => {
+    // eslint-disable-next-line max-len
     alert(`Added a ${this.props.productName} - ${this.state.selectedBandSize}${this.state.selectedCupSize.size} to the cart`)
   }
 
@@ -171,7 +172,7 @@ class VariantsContainer extends Component {
                     key={variantName}
                     tabindex={index}
                     color={colors[VARIANT_NAMES[index]]}/>
-                  )
+                )
               })
             }
           </ColorCircleContainer>
@@ -187,11 +188,11 @@ class VariantsContainer extends Component {
                 R.map(bandSize => {
                   return (
                     <option
-                      key={bandSize+this.convertVariantName(this.state.selectedColor)}
+                      key={bandSize + this.convertVariantName(this.state.selectedColor)}
                       value={bandSize}>{bandSize}
                     </option>
                   )
-              })(this.state.bandSizes)
+                })(this.state.bandSizes)
               }
             </DropdownContainer>
             <DropdownContainer
@@ -202,11 +203,11 @@ class VariantsContainer extends Component {
                 R.map((cupSize) => {
                   return (
                     <option
-                    key={cupSize.id}
-                    id={cupSize.id}
-                    value={cupSize.size}>
-                    {cupSize.size}
-                  </option>
+                      key={cupSize.id}
+                      id={cupSize.id}
+                      value={cupSize.size}>
+                      {cupSize.size}
+                    </option>
                   )
                 })(this.state.cupSizes)
               }

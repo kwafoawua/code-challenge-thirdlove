@@ -18,14 +18,17 @@ class Main extends React.Component {
       .then(response => {
         return response.json()
       })
-      .then(json => {
-        let product = {}
-        product.title = json.product.title
-        product.description = json.product.body_html
-        product.images = json.product.images
-        product.variants = json.product.variants
+      .then(({ product }) => {
+        const { title, body_html: description, images, variants } = product
 
-        this.setState({ product })
+        this.setState({
+          product: {
+            title,
+            description,
+            images,
+            variants,
+          },
+        })
       })
   }
 
