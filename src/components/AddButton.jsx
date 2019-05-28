@@ -14,6 +14,7 @@ export const AddButton = styled.div`
   align-self: center;
   height: 50px;
   width: 335px;
+  cursor: pointer;
 
  @media(min-width: ${sizes.mobile}) {
     width: 708px;
