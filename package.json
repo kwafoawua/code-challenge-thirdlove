@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --config config/webpack.dev.js --open --hot",
     "build": "webpack --config config/webpack.prod.js",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b master -d dist",
     "test": "jest",
     "storybook": "start-storybook -p 6006"
   },
@@ -17,7 +17,7 @@
     }
   },
   "repository": "https://github.com/kwafoawua/code-challenge-thirdlove",
-  "homepage": "https://kwafoawua.github.com/code-challenge-thirdlove",
+  "homepage": "https://kwafoawua.github.io/code-challenge-thirdlove",
   "author": "Afua Kwafo Awua",
   "license": "MIT",
   "dependencies": {
