@@ -2,10 +2,10 @@
 
 Front-end practical test by Afua Kwafo Awua
 
-####Demo
+#### Demo
 You can see a Demo at: https://kwafoawua.github.io/code-challenge-thirdlove/
 
-##Let's get down to bussiness
+## Let's get down to bussiness
 ### Install Locally
 
 To get the app running locally clone the repository
