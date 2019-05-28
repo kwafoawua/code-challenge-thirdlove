@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --config config/webpack.dev.js --open --hot",
     "build": "webpack --config config/webpack.prod.js",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d dist",
+    "deploy": "gh-pages -b public -d dist",
     "test": "jest",
     "storybook": "start-storybook -p 6006"
   },
