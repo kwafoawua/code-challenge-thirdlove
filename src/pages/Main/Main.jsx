@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { Container, Title } from '../../components'
 import  VariantsContainer from './VariantsContainer'
 import Gallery from "./Gallery"
@@ -14,12 +15,9 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://www.mocky.io/v2/5c6c3a92320000e83bbef971')
-      .then(response => {
-        return response.json()
-      })
-      .then(({ product }) => {
-        const { title, body_html: description, images, variants } = product
+    axios.get('https://www.mocky.io/v2/5c6c3a92320000e83bbef971')
+      .then(res => {
+        const { title, body_html: description, images, variants } = res.data.product
 
         this.setState({
           product: {
@@ -29,6 +27,10 @@ class Main extends React.Component {
             variants,
           },
         })
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error)
       })
   }
 
